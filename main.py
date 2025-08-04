@@ -43,18 +43,12 @@ MESSAGE = """
 ▫️<b><u>유흥업소 수도권</u></b> <a href="http://t.me/ocn27Marketing">채널보기</a>
 ▫️<b><u>명품/레플리카/주얼리</u></b> <a href="http://t.me/ocn13Marketing">채널보기</a>
 ▫️<b><u>TV/영화/애니/중계</u></b> <a href="http://t.me/ocn26Marketing">채널보기</a>
-
-📢 <b>공지 이벤트</b> : @KBOVVIP365
-
-👑 <b>KBO 보증거래 안내</b> : @KBOEU2
-👑 <b>KBO 보증거래 신청</b> : @KBOVVIP
-
-👑 <b>건의 문의 제휴</b> : @KBOVVIP
 """
 
-# ▶️ "제휴" 정확히 입력한 경우 발송
+# ▶️ "제휴", "업자", "업체" 정확히 입력한 경우 발송
 async def keyword_trigger(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.message.text.strip() == "제휴":
+    keywords = ["제휴", "업자", "업체"]
+    if update.message.text.strip() in keywords:
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
             text=MESSAGE,
